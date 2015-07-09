@@ -98,8 +98,6 @@
 		 * Renders the Emrello object in the DOM
 		 */
 		function render(data) {
-			console.log('Rendering ' + this.getType() + ' ' + this.getId());
-			this.prototype.innerHTML = this.getType() + ' ' + this.getId();
 		}
 		
 		return this;
