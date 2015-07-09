@@ -25,7 +25,7 @@
 	 * Represents an embedded Trello object
 	 */
 	function Emrello(element) {
-		var type, id, url;
+		var type, id, url, interval;
 		
 		this.prototype = element;
 		
@@ -66,6 +66,19 @@
 			
 			return id;
 		};
+		
+		/**
+		 * Gets the update interval of the Emrello.
+		 */
+		this.getInterval = function() {
+			// lazily get the attribute value
+			if (!interval) {
+				interval = element.getAttribute(PREFIX + 'update-interval');
+			}
+			
+			// if attribute is not specified, deault to 30 seconds
+			if (!interval) interval = 30;
+		}
 		
 		/**
 		 * Gets the Trello API URL of the Emrello.
