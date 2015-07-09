@@ -109,6 +109,7 @@
 	var embeddings = document.querySelectorAll('div[' + PREFIX + 'id]');
 	if (embeddings.length === 0) return;
 	
+	// create a decorated object with the DOM element
 	for (var i = 0; i < embeddings.length; i++) {
 		emrello.push(new Emrello(embeddings[i]));
 	}
