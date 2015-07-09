@@ -106,7 +106,7 @@
 	if (!getKey()) return;
 	
 	// get embedded cards, lists, and boards
-	var embeddings = document.querySelectorAll('div[' + PREFIX + 'type]');
+	var embeddings = document.querySelectorAll('div[' + PREFIX + 'id]');
 	if (embeddings.length === 0) return;
 	
 	for (var i = 0; i < embeddings.length; i++) {
