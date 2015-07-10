@@ -227,22 +227,6 @@
 	var emrello = [];
 	
 	/**
-	 * Gets the Trello API key which is embedded as an attribute
-	 * of the script tag which loads Emrello.js
-	 */
-	function getKey() {
-		// find the script element containing Emrello.js
-		var emrelloScript = document.querySelector('script[' + PREFIX + 'key]');
-		if (!emrelloScript) return false;
-		
-		// extract the key
-		emrello.key = emrelloScript.getAttribute(PREFIX + 'key');
-		if (!emrello.key) return false;
-		
-		return true;
-	}
-	
-	/**
 	 * Renders a given template inside a given parent element
 	 * using a given data object
 	 */
@@ -347,18 +331,32 @@
 		return this;
 	}
 	
-	if (!getKey()) return;
-	
-	// get embedded cards, lists, and boards
-	var embeddings = document.querySelectorAll('div[' + PREFIX + 'id]');
-	if (embeddings.length === 0) return;
-	
-	// create a decorated object with the DOM element
-	for (var i = 0; i < embeddings.length; i++) {
-		emrello.push(new Emrello(embeddings[i]));
+	/**
+	 * Initialization
+	 */
+	function init() {
+		// find the script element containing Emrello.js
+		var emrelloScript = document.querySelector('script[' + PREFIX + 'key]');
+		if (!emrelloScript) return;
+		
+		// extract the key
+		emrello.key = emrelloScript.getAttribute(PREFIX + 'key');
+		if (!emrello.key) return;
+
+		// get embedded cards, lists, and boards
+		var embeddings = document.querySelectorAll('div[' + PREFIX + 'id]');
+		if (embeddings.length === 0) return;
+		
+		// create a decorated object with the DOM element
+		for (var i = 0; i < embeddings.length; i++) {
+			emrello.push(new Emrello(embeddings[i]));
+		}
+		
+		for (var j = 0; j < emrello.length; j++) {
+			emrello[j].update();
+		}
 	}
 	
-	for (var j = 0; j < emrello.length; j++) {
-		emrello[j].update();
-	}
+	/********* entry point *********/
+	init();
 }());
