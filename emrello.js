@@ -11,6 +11,7 @@
 		'card': {
 			'overflow': 'auto',
 			'padding': '6px 8px 4px',
+			'margin': '10px',
 			'position': 'relative',
 			'display': 'inline-block',
 			'cursor': 'pointer',
@@ -99,7 +100,8 @@
 			'color': '#8c8c8c',
 			'display': 'inline-block',
 			'height': '18px',
-			'margin': '0 0 4px 0',
+			'margin': '0',
+			'marginRight': '4px',
 			'position': 'relative',
 			'textDecoration': 'none',
 			'verticalAlign': 'top',
@@ -146,42 +148,112 @@
 		'type': 'span',
 		'styles': [ 'label' ],
 		'attributes': {
-			'title': function () {}
+			'title': function (label) {
+				return getLabelTitle(label);
+			}
 		},
-		'content': function () {}
+		'content': function (label) {
+			return document.createTextNode(getLabelTitle(label));
+		},
+		'postCreation': function(label) {
+			setDomStyles(this, STYLES['label-' + label.color]);
+		}
 	};
 	var TEM_LABEL_GROUP = {
 		'type': 'div',
 		'styles': [ 'labels' ],
-		'content': function () {}
+		'content': function (card) {
+			var labels = [];
+			
+			card.labels.forEach(function (curr, ix, arr) {
+				labels.push(renderTemplate(TEM_LABEL, curr));
+			});
+			
+			return labels;
+		}
 	};
 	var TEM_CARD_TITLE = {
 		'type': 'a',
 		'styles': [ 'card-title' ],
 		'attributes': {
-			'href': function () {},
+			'href': function (card) {
+				return card.shortUrl;
+			},
 			'target': '_blank'
 		},
-		'content': function () {}
+		'content': function (card) {
+			return document.createTextNode(card.name);
+		}
 	};
 	var TEM_BADGE = {
 		'type': 'div',
 		'styles': [ 'badge' ],
 		'attributes': {
-			'title': function () {}
+			'title': function (badge) {
+				switch(badge.type) {
+				case 'description': return 'This card has a description';
+				case 'comments': return 'Comments';
+				case 'attachments': return 'Attachments';
+				case 'checklist': return 'Checklist items';
+				case 'due':
+					var now = Date.now();
+					if (badge.dueDate > now) {
+						return 'This card is due later';
+					} else {
+						return 'This card is past due';
+					}
+				}
+			}
 		},
 		'content': [
 			{
 				'type': 'span',
 				'styles': [ 'badge-text' ],
-				'content': function () {}
+				'content': function (badge) {
+					var text;
+					
+					switch(badge.type) {
+					case 'description': text = '='; break;
+					case 'comments': text = '% ' + badge.count; break;
+					case 'attachments': text = '@ ' + badge.count; break;
+					case 'checklist': text = '# ' + badge.checked + '/' + badge.total; break;
+					case 'due': text = getShortDateString(badge.dueDate); break;
+					}
+					
+					return document.createTextNode(text);
+				}
 			}
 		]
 	};
 	var TEM_BADGE_GROUP = {
 		'type': 'div',
 		'styles': [ 'badges' ],
-		'content': function () {}
+		'content': function (card) {
+			var b = card.badges;
+			var badges = [];
+			
+			if (b.description) {
+				badges.push(renderTemplate(TEM_BADGE, { 'type': 'description' }));
+			}
+			
+			if (b.comments > 0) {
+				badges.push(renderTemplate(TEM_BADGE, { 'type': 'comments', 'count': b.comments }));
+			}
+			
+			if (b.attachments > 0) {
+				badges.push(renderTemplate(TEM_BADGE, { 'type': 'attachments', 'count': b.attachments }));
+			}
+			
+			if (b.checkItems > 0) {
+				badges.push(renderTemplate(TEM_BADGE, { 'type': 'checklist', 'total': b.checkItems, 'checked': b.checkItemsChecked }));
+			}
+			
+			if (b.due) {
+				badges.push(renderTemplate(TEM_BADGE, { 'type': 'due', 'dueDate': new Date(b.due) }));
+			}
+			
+			return badges;
+		}
 	};
 	var TEM_MEMBER = {
 		'type': 'div',
@@ -209,7 +281,9 @@
 	var TEM_DUMMY = {
 		'type': 'span',
 		'styles': [],
-		'content': function () {}
+		'content': function () {
+			return document.createTextNode('Rendering dummy template');
+		}
 	}
 	
 	/**
@@ -227,11 +301,131 @@
 	var emrello = [];
 	
 	/**
-	 * Renders a given template inside a given parent element
-	 * using a given data object
+	 * Renders a given template using a given data object
+	 * and returns the newly created element/node, which
+	 * can be inserted into DOM by the caller.
 	 */
-	function renderTemplate(parent, template, data) {
-		parent.innerHTML = 'Rendering template';
+	function renderTemplate(template, data) {
+		var elem = document.createElement(template['type']);
+		
+		doIfPropertyExists(template, 'attributes', function (attrObj) {
+			for (var attr in attrObj) {
+				setDomAttribute(elem, attr, attrObj[attr], data);
+			}
+		});
+		
+		doIfPropertyExists(template, 'styles', function (styleNames) {
+			styleNames.forEach(function (curr, ix, arr) {
+				setDomStyles(elem, STYLES[curr]);
+			});
+		});
+		
+		doIfPropertyExists(template, 'content', function (content) {
+			var contentType = typeof content;
+			var innerContent = [];
+			
+			if (contentType === 'string') {
+				innerContent.push(document.createTextNode(content));
+			} else if (contentType === 'object' && Array.isArray(content)) {
+				content.forEach(function (curr, ix, arr) {
+					innerContent.push(renderTemplate(curr, data));
+				});
+			} else if (contentType === 'function') {
+				innerContent = content(data) || [];
+			}
+			
+			if (!Array.isArray(innerContent)) {
+				innerContent = [ innerContent ];
+			}
+			
+			innerContent.forEach(function (curr, ix, arr) {
+				elem.appendChild(curr);
+			});
+		});
+		
+		doIfPropertyExists(template, 'postCreation', function (postCreation) {
+			postCreation.call(elem, data);
+		});
+		
+		return elem;
+	}
+	
+	/**
+	 * Executes a callback if a property of a give object
+	 * exists. Value of the property is passed to the callback
+	 * as its argument.
+	 */
+	function doIfPropertyExists(obj, prop, callback) {
+		if (obj.hasOwnProperty(prop)) {
+			callback(obj[prop]);
+		}
+	}
+	
+	/**
+	 * Sets attributes fetched from a template to a DOM element
+	 */
+	function setDomAttribute(element, attribute, valueGetter, data) {
+		if (valueGetter == null) return;
+		
+		var valueType = typeof valueGetter;
+		var attrValue;
+		
+		if (valueType === 'string') {
+			attrValue = valueGetter;
+		} else if (valueType === 'function') {
+			attrValue = valueGetter(data);
+		}
+		
+		element.setAttribute(attribute, attrValue);
+	}
+	
+	/**
+	 * Sets styles fetched from a template to a DOM element
+	 */
+	function setDomStyles(element, stylesheet) {
+		for (var attr in stylesheet) {
+			doIfPropertyExists(element.style, attr, function (val) {
+				element.style[attr] = stylesheet[attr];
+			});
+		}
+	}
+	
+	/**
+	 * Determines the mouseover text (title) of a label
+	 */
+	function getLabelTitle(label) {
+		var title = label.name;
+		
+		if (!title) {
+			title = label.color + ' label (default)';
+		}
+		
+		return title;
+	}
+	
+	/**
+	 * Formats due dates of cards to suit the UI
+	 */
+	function getShortDateString(date) {
+		var month;
+		
+		switch (date.getMonth()) {
+			case  0: month = 'Jan'; break;
+			case  1: month = 'Feb'; break;
+			case  2: month = 'Mar'; break;
+			case  3: month = 'Apr'; break;
+			case  4: month = 'May'; break;
+			case  5: month = 'Jun'; break;
+			case  6: month = 'Jul'; break;
+			case  7: month = 'Aug'; break;
+			case  8: month = 'Sep'; break;
+			case  9: month = 'Oct'; break;
+			case 10: month = 'Nov'; break;
+			case 11: month = 'Dec'; break;
+			default: month = 'Err'; break;
+		}
+		
+		return month + ' ' + date.getDate();
 	}
 	
 	/**
@@ -325,7 +519,8 @@
 		 */
 		function render(data) {
 			var template = TEMPLATE_TYPES[this.getType()];
-			renderTemplate(this.prototype, template, data);
+			this.prototype.style.textAlign = 'center';
+			this.prototype.appendChild(renderTemplate(template, data));
 		}
 		
 		return this;
