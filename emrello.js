@@ -1,7 +1,26 @@
 
 (function () {
 	'use strict';
+	
+	/**
+	 * API endpoint
+	 */
 	var API = 'https://api.trello.com/1/';
+	
+	/**
+	 * Arguments for each API type
+	 */
+	var API_ARGS = {
+		'card': {
+			'members': 'true'
+		},
+		'list': {},
+		'board': {}
+	};
+	
+	/**
+	 * Prefix on custom attributes in Emrello objects
+	 */
 	var PREFIX = 'data-emrello-';
 	
 	/**
@@ -259,14 +278,26 @@
 		'type': 'div',
 		'styles': [ 'member' ],
 		'attributes': {
-			'title': function () {}
+			'title': function (member) {
+				return member.fullName + ' (' + member.username + ')';
+			}
 		},
-		'content': function () {}
+		'content': function (member) {
+			return document.createTextNode(member.initials);
+		}
 	};
 	var TEM_MEMBER_GROUP = {
 		'type': 'div',
 		'styles': [ 'members' ],
-		'content': function () {}
+		'content': function (card) {
+			var members = [];
+			
+			card.members.forEach(function (member, ix, arr) {
+				members.push(renderTemplate(TEM_MEMBER, member));
+			});
+			
+			return members;
+		}
 	};
 	var TEM_CARD = {
 		'type': 'div',
@@ -442,6 +473,7 @@
 		}
 		return xhr;
 	}
+	
 	/**
 	 * Represents an embedded Trello object
 	 */
@@ -506,7 +538,13 @@
 		 */
 		this.getUrl = function () {
 			if (!url) {
-				url = API + this.getType() + 's/' + this.getId() + '?key=' + emrello.key;
+				var type = this.getType();
+				var args = API_ARGS[type];
+				url = API + type + 's/' + this.getId() + '?key=' + emrello.key;
+				
+				for (var arg in args) {
+					url += '&' + arg + '=' + args[arg];
+				}
 			}
 			
 			return url;
