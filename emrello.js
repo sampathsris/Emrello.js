@@ -14,7 +14,9 @@
 		'card': {
 			'members': 'true'
 		},
-		'list': {},
+		'list': {
+			'cards': 'open'
+		},
 		'board': {}
 	};
 	
@@ -30,12 +32,12 @@
 		'card': {
 			'overflow': 'auto',
 			'padding': '6px 8px 4px',
-			'margin': '10px',
+			'margin': '0px',
 			'position': 'relative',
 			'display': 'inline-block',
 			'cursor': 'pointer',
 			'color': '#4d4d4d',
-			'fontFamily': '"Helvetica Neue", Arial, Helvetica, sans-serif',
+			'backgroundColor': '#fff',
 			'fontSize': '14px',
 			'lineHeight': '18px',
 			'border': '1px solid #ccc',
@@ -156,6 +158,40 @@
 			'fontWeight': 'bold',
 			'fontSize': '18px',
 			'textAlign': 'center'
+		},
+		'list': {
+			'margin': '0 5px',
+			'backgroundColor': '#e2e4e6',
+			'border': '1px solid #ccc',
+			'borderRadius': '3px',
+			'boxSizing': 'border-box',
+			'display': 'inline-block',
+			'maxHeight': '600px',
+			'width': '270px',
+			'maxWidth': '270px',
+			'padding': '4px 4px 8px 4px'
+		},
+		'list-header': {
+			'padding': '8px 12px',
+			'position': 'relative',
+			'minHeight': '19px',
+			'display': 'block',
+			'lineHeight': '18px',
+			'textAlign': 'left',
+			'color': '#4d4d4d'
+		},
+		'list-header-title': {
+			'cursor': 'pointer',
+			'display': 'inline',
+			'fontSize': '15px',
+			'fontWeight': 'bold',
+			'lineHeight': '18px',
+			'margin': '0',
+			'minHeight': '19px',
+			'minWidth': '30px',
+			'overflow': 'hidden',
+			'textOverflow': 'ellipsis',
+			'wordWrap': 'break-word'
 		}
 	};
 	
@@ -314,6 +350,34 @@
 			TEM_MEMBER_GROUP
 		]
 	};
+	var TEM_LIST_HEADER = {
+		'type': 'div',
+		'styles': [ 'list-header' ],
+		'content': [
+			{
+				'type': 'h2',
+				'styles': [ 'list-header-title' ],
+				'content': function (list) {
+					return document.createTextNode(list.name);
+				}
+			}
+		]
+	};
+	var TEM_LIST = {
+		'type': 'div',
+		'styles': [ 'list' ],
+		'content': function (list) {
+			var children = [];
+			children.push(renderTemplate(TEM_LIST_HEADER, list));
+			
+			list.cards.forEach(function (card, ix, arr) {
+				card.members = [];
+				children.push(renderTemplate(TEM_CARD, card));
+			});
+			
+			return children;
+		}
+	};
 	var TEM_DUMMY = {
 		'type': 'span',
 		'styles': [],
@@ -327,7 +391,7 @@
 	 */
 	var TEMPLATE_TYPES = {
 		'card': TEM_CARD,
-		'list': TEM_DUMMY,
+		'list': TEM_LIST,
 		'board': TEM_DUMMY
 	};
 	
@@ -586,6 +650,8 @@
 		function render(data) {
 			var template = TEMPLATE_TYPES[this.getType()];
 			this.prototype.style.textAlign = 'center';
+			this.prototype.style.fontFamily = '"Helvetica Neue", Arial, Helvetica, sans-serif';
+			this.prototype.style.padding = '10px';
 			this.prototype.appendChild(renderTemplate(template, data));
 		}
 		
