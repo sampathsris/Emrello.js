@@ -1,4 +1,9 @@
 
+/**
+ * Emrello.js
+ *
+ * Embed Trello cards, lists, and even boards on your web page with periodic updates.
+ */
 (function () {
 	'use strict';
 	
@@ -172,7 +177,7 @@
 			'maxHeight': '600px',
 			'width': '270px',
 			'maxWidth': '270px',
-			'padding': '4px 4px 4px 4px'
+			'padding': '4px 4px 8px 4px'
 		},
 		'list-header': {
 			'padding': '8px 12px',
