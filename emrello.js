@@ -119,8 +119,7 @@
 			'color': '#8c8c8c',
 			'display': 'inline-block',
 			'height': '18px',
-			'margin': '0',
-			'marginRight': '4px',
+			'margin': '0 4px 2px 0',
 			'position': 'relative',
 			'textDecoration': 'none',
 			'verticalAlign': 'top',
@@ -214,6 +213,7 @@
 				case 'comments': return 'Comments';
 				case 'attachments': return 'Attachments';
 				case 'checklist': return 'Checklist items';
+				case 'votes': return 'Votes';
 				case 'due':
 					var now = Date.now();
 					if (badge.dueDate > now) {
@@ -236,6 +236,7 @@
 					case 'comments': text = '% ' + badge.count; break;
 					case 'attachments': text = '@ ' + badge.count; break;
 					case 'checklist': text = '# ' + badge.checked + '/' + badge.total; break;
+					case 'votes': text = '^ ' + badge.count + ' vote' + (badge.count > 1 ? 's' : ''); break;
 					case 'due': text = getShortDateString(badge.dueDate); break;
 					}
 					
@@ -265,6 +266,10 @@
 			
 			if (b.checkItems > 0) {
 				badges.push(renderTemplate(TEM_BADGE, { 'type': 'checklist', 'total': b.checkItems, 'checked': b.checkItemsChecked }));
+			}
+			
+			if (b.votes > 0) {
+				badges.push(renderTemplate(TEM_BADGE, { 'type': 'votes', 'count': b.votes }));
 			}
 			
 			if (b.due) {
