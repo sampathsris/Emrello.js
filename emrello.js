@@ -308,18 +308,6 @@
 	function renderTemplate(template, data) {
 		var elem = document.createElement(template['type']);
 		
-		doIfPropertyExists(template, 'attributes', function (attrObj) {
-			for (var attr in attrObj) {
-				setDomAttribute(elem, attr, attrObj[attr], data);
-			}
-		});
-		
-		doIfPropertyExists(template, 'styles', function (styleNames) {
-			styleNames.forEach(function (curr, ix, arr) {
-				setDomStyles(elem, STYLES[curr]);
-			});
-		});
-		
 		doIfPropertyExists(template, 'content', function (content) {
 			var contentType = typeof content;
 			var innerContent = [];
@@ -340,6 +328,18 @@
 			
 			innerContent.forEach(function (curr, ix, arr) {
 				elem.appendChild(curr);
+			});
+		});
+		
+		doIfPropertyExists(template, 'attributes', function (attrObj) {
+			for (var attr in attrObj) {
+				setDomAttribute(elem, attr, attrObj[attr], data);
+			}
+		});
+		
+		doIfPropertyExists(template, 'styles', function (styleNames) {
+			styleNames.forEach(function (curr, ix, arr) {
+				setDomStyles(elem, STYLES[curr]);
 			});
 		});
 		
@@ -384,9 +384,7 @@
 	 */
 	function setDomStyles(element, stylesheet) {
 		for (var attr in stylesheet) {
-			doIfPropertyExists(element.style, attr, function (val) {
-				element.style[attr] = stylesheet[attr];
-			});
+			element.style[attr] = stylesheet[attr];
 		}
 	}
 	
@@ -428,6 +426,22 @@
 		return month + ' ' + date.getDate();
 	}
 	
+	/**
+	 * Creates an object that supports CORS
+	 */
+	function createCORSRequest(method, url){
+		var xhr = new XMLHttpRequest();
+		if ("withCredentials" in xhr){
+			// XHR has 'withCredentials' property only if it supports CORS
+			xhr.open(method, url, true);
+		} else if (typeof XDomainRequest != 'undefined'){ // if IE use XDR
+			xhr = new XDomainRequest();
+			xhr.open(method, url);
+		} else {
+			xhr = null;
+		}
+		return xhr;
+	}
 	/**
 	 * Represents an embedded Trello object
 	 */
@@ -503,13 +517,22 @@
 		 */
 		this.update = function () {
 			var em = this;
-			var xhr = new XMLHttpRequest();
+			var xhr = createCORSRequest('GET', this.getUrl());
+			
+			if (!xhr) return;
+			
 			xhr.onreadystatechange = function () {
 				if (this.readyState === 4 && this.status === 200) {
-					render.call(em, this.response);
+					var data = this.response;
+					
+					if (typeof data === 'string') {
+						data = JSON.parse(this.response);
+					}
+					
+					render.call(em, data);
 				}
 			};
-			xhr.open('GET', this.getUrl(), true);
+			
 			xhr.responseType = 'json';
 			xhr.send(null);
 		};
