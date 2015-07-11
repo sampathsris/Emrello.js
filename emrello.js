@@ -40,9 +40,9 @@
 		'card': {
 			'overflow': 'auto',
 			'padding': '6px 8px 4px',
-			'margin': '0px',
+			'marginBottom': '4px',
 			'position': 'relative',
-			'display': 'inline-block',
+			'display': 'block',
 			'cursor': 'pointer',
 			'color': '#4d4d4d',
 			'backgroundColor': '#fff',
@@ -168,19 +168,18 @@
 			'textAlign': 'center'
 		},
 		'list': {
-			'margin': '0 5px',
+			'margin': '5px',
 			'backgroundColor': '#e2e4e6',
 			'border': '1px solid #ccc',
 			'borderRadius': '3px',
 			'boxSizing': 'border-box',
 			'display': 'inline-block',
 			'maxHeight': '600px',
-			'width': '270px',
 			'maxWidth': '270px',
-			'padding': '4px 4px 8px 4px'
+			'padding': '4px 4px 0px 4px'
 		},
 		'list-header': {
-			'padding': '8px 12px',
+			'padding': '8px 4px',
 			'position': 'relative',
 			'minHeight': '19px',
 			'display': 'block',
@@ -234,13 +233,15 @@
 		},
 		'board-canvas': {
 			'maxHeight': '600px',
-			'marginBottom': '10px',
+			'paddingBottom': '10px',
 			'overflowX': 'auto',
 			'overflowY': 'hidden'
 		},
 		'list-container': {
 			'padding': '0 5px',
-			'display': 'flex'
+			'display': 'inline-flex'
+		},
+		'list-wrap': {
 		}
 	};
 	
@@ -427,6 +428,13 @@
 			return children;
 		}
 	};
+	var TEM_LIST_WRAP = {
+		'type': 'div',
+		'styles': [ 'list-wrap' ],
+		'content': [
+			TEM_LIST
+		]
+	};
 	var TEM_BOARD = {
 		'type': 'div',
 		'styles': [ 'board-wrapper' ],
@@ -478,13 +486,11 @@
 									}
 								});
 								
-								var listNode = renderTemplate(TEM_LIST, list);
+								var listNode = renderTemplate(TEM_LIST_WRAP, list);
 								
 								listNode.style.position = 'relative';
 								listNode.style.cssFloat = 'left';
 								listNode.style.top = '0';
-								listNode.style.display = 'flex';
-								listNode.style.flexDirection = 'column';
 								
 								children.push(listNode);
 							});
@@ -780,10 +786,16 @@
 		 */
 		function render(data) {
 			var template = TEMPLATE_TYPES[this.getType()];
+			var elem = renderTemplate(template, data);
+			
+			if (this.getType() == 'card') {
+				elem.style.display = 'inline-block';
+			}
+			
 			this.prototype.style.textAlign = 'center';
 			this.prototype.style.fontFamily = '"Helvetica Neue", Arial, Helvetica, sans-serif';
 			this.prototype.style.padding = '10px';
-			this.prototype.appendChild(renderTemplate(template, data));
+			this.prototype.appendChild(elem);
 		}
 		
 		return this;
