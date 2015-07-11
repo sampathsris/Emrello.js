@@ -17,7 +17,10 @@
 		'list': {
 			'cards': 'open'
 		},
-		'board': {}
+		'board': {
+			'cards': 'open',
+			'lists': 'open'
+		}
 	};
 	
 	/**
@@ -192,6 +195,47 @@
 			'overflow': 'hidden',
 			'textOverflow': 'ellipsis',
 			'wordWrap': 'break-word'
+		},
+		'board-wrapper': {
+			'overflow': 'hidden',
+			'borderRadius': '6px'
+		},
+		'board-header': {
+			'height': 'auto',
+			'overflow': 'hidden',
+			'padding': '10px 8px'
+		},
+		'board-title': {
+			'cursor': 'pointer',
+			'fontSize': '18px',
+			'fontWeight': '700',
+			'lineHeight': '30px',
+			'paddingLeft': '4px',
+			'textDecoration': 'none',
+			'cssFloat': 'left',
+			'height': '30px',
+			'overflow': 'hidden',
+			'textOverflow': 'ellipsis',
+			'backgroundColor': 'transparent',
+			'color': '#fff'
+		},
+		'board-visibility': {
+			'fontSize': '12px',
+			'cssFloat': 'left',
+			'height': '30px',
+			'lineHeight': '30px',
+			'marginLeft': '30px',
+			'color': '#fff'
+		},
+		'board-canvas': {
+			'maxHeight': '600px',
+			'marginBottom': '10px',
+			'overflowX': 'auto',
+			'overflowY': 'hidden'
+		},
+		'list-container': {
+			'padding': '0 5px',
+			'display': 'flex'
 		}
 	};
 	
@@ -378,6 +422,88 @@
 			return children;
 		}
 	};
+	var TEM_BOARD = {
+		'type': 'div',
+		'styles': [ 'board-wrapper' ],
+		'content': [
+			{
+				'type': 'div',
+				'styles': [ 'board-header' ],
+				'content': [
+					{
+						'type': 'a',
+						'styles': [ 'board-title' ],
+						'attributes': {
+							'href': function (board) {
+								return board.shortUrl;
+							},
+							'target': '_blank'
+						},
+						'content': function (board) {
+							return document.createTextNode(board.name);
+						}
+					},
+					{
+						'type': 'span',
+						'styles': [ 'board-visibility' ],
+						'content': function (board) {
+							var level = board.prefs.permissionLevel;
+							level = level.charAt(0).toUpperCase() + level.slice(1);
+							return document.createTextNode(level);
+						}
+					}
+				]
+			},
+			{
+				'type': 'div',
+				'styles': [ 'board-canvas' ],
+				'content': [
+					{
+						'type': 'div',
+						'styles': [ 'list-container' ],
+ 						'content': function (board) {
+							var children = [];
+							
+							board.lists.forEach(function (list, ix, arr) {
+								list.cards = [];
+								
+								board.cards.forEach(function (card, ix2, arr2) {
+									if (card.idList == list.id) {
+										list.cards.push(card);
+									}
+								});
+								
+								var listNode = renderTemplate(TEM_LIST, list);
+								
+								listNode.style.position = 'relative';
+								listNode.style.cssFloat = 'left';
+								listNode.style.top = '0';
+								listNode.style.display = 'flex';
+								listNode.style.flexDirection = 'column';
+								
+								children.push(listNode);
+							});
+							
+							return children;
+						}
+					}
+				]
+			}
+		],
+		'postCreation': function(board) {
+			var styles = {};
+			
+			if (board.prefs.backgroundColor) {
+				styles['backgroundColor'] = board.prefs.backgroundColor;
+			}
+			
+			if (board.prefs.backgroundImage) {
+				styles['backgroundImage'] = 'url("' + board.prefs.backgroundImage + '")';
+			}
+			
+			setDomStyles(this, styles);
+		}
+	};
 	var TEM_DUMMY = {
 		'type': 'span',
 		'styles': [],
@@ -392,7 +518,7 @@
 	var TEMPLATE_TYPES = {
 		'card': TEM_CARD,
 		'list': TEM_LIST,
-		'board': TEM_DUMMY
+		'board': TEM_BOARD
 	};
 	
 	/**
