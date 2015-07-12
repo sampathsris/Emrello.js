@@ -128,7 +128,7 @@
 		'badge': {
 			'color': '#8c8c8c',
 			'display': 'inline-block',
-			'height': '18px',
+			'height': '14px',
 			'margin': '0 4px 2px 0',
 			'position': 'relative',
 			'textDecoration': 'none',
@@ -136,14 +136,15 @@
 			'backgroundColor': '#eee',
 			'border': '1px solid #ddd',
 			'borderRadius': '2px',
-			'padding': '0 4px 0 4px'
+			'padding': '0 4px'
 		},
 		'badge-text': {
-			'height': '18px',
-			'fontSize': '12px',
-			'lineHeight': '18px',
-			'width': '18px',
+			'height': '14px',
+			'fontSize': '11px',
+			'lineHeight': '14px',
+			'width': '16px',
 			'textAlign': 'center',
+			'verticalAlign': 'top',
 			'textDecoration': 'none'
 		},
 		'members': {
