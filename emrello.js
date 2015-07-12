@@ -672,6 +672,8 @@
 	 */
 	function getShortDateString(date) {
 		var month;
+		var now = new Date();
+		var year = now.getFullYear() != date.getFullYear() ? ', ' + date.getFullYear() : '';
 		
 		switch (date.getMonth()) {
 			case  0: month = 'Jan'; break;
@@ -689,7 +691,7 @@
 			default: month = 'Err'; break;
 		}
 		
-		return month + ' ' + date.getDate();
+		return month + ' ' + date.getDate() + year;
 	}
 	
 	/**
