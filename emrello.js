@@ -40,7 +40,7 @@
 		'card': [
 			{ 'name': 'overflow', 'value': 'auto' },
 			{ 'name': 'padding', 'value': '6px 8px 4px' },
-			{ 'name': 'marginBottom', 'value': '4px' },
+			{ 'name': 'margin', 'value': '0 2px 4px 0' },
 			{ 'name': 'position', 'value': 'relative' },
 			{ 'name': 'display', 'value': 'block' },
 			{ 'name': 'cursor', 'value': 'pointer' },
@@ -50,7 +50,8 @@
 			{ 'name': 'lineHeight', 'value': '18px' },
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '4px' },
-			{ 'name': 'width', 'value': '214px' },
+			{ 'name': 'width', 'value': 'auto' },
+			{ 'name': 'maxWidth', 'value': '214px' },
 			{ 'name': 'textAlign', 'value': 'left' }
 		],
 		'labels': [
@@ -63,7 +64,7 @@
 			{ 'name': 'height', 'value': '8px' },
 			{ 'name': 'margin', 'value': '0 3px 3px 0' },
 			{ 'name': 'padding', 'value': '0' },
-			{ 'name': 'width', 'value': '39px' },
+			{ 'name': 'width', 'value': '18%' },
 			{ 'name': 'lineHeight', 'value': '100px' },
 			{ 'name': 'borderRadius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'block' },
@@ -175,8 +176,8 @@
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'maxHeight', 'value': '440px' },
-			{ 'name': 'minWidth', 'value': '232px' },
+			{ 'name': 'maxHeight', 'value': '450px' },
+			{ 'name': 'width', 'value': 'auto' },
 			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
 		],
 		'list-header': [
@@ -203,7 +204,8 @@
 		],
 		'card-list': [
 			{ 'name': 'overflowY', 'value': 'auto' },
-			{ 'name': 'overflowX', 'value': 'visible' }
+			{ 'name': 'overflowX', 'value': 'visible' },
+			{ 'name': 'maxHeight', 'value': '410px' }
 		],
 		'board-wrapper': [
 			{ 'name': 'overflow', 'value': 'hidden' },
