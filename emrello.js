@@ -40,7 +40,7 @@
 		'card': [
 			{ 'name': 'overflow', 'value': 'auto' },
 			{ 'name': 'padding', 'value': '6px 8px 4px' },
-			{ 'name': 'margin', 'value': '0 2px 4px 0' },
+			{ 'name': 'margin', 'value': '0 0 4px 0' },
 			{ 'name': 'position', 'value': 'relative' },
 			{ 'name': 'display', 'value': 'block' },
 			{ 'name': 'cursor', 'value': 'pointer' },
@@ -50,8 +50,8 @@
 			{ 'name': 'lineHeight', 'value': '18px' },
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '4px' },
-			{ 'name': 'width', 'value': 'auto' },
 			{ 'name': 'maxWidth', 'value': '214px' },
+			{ 'name': 'width', 'value': 'auto' },
 			{ 'name': 'textAlign', 'value': 'left' }
 		],
 		'labels': [
@@ -178,6 +178,7 @@
 			{ 'name': 'display', 'value': 'inline-block' },
 			{ 'name': 'maxHeight', 'value': '450px' },
 			{ 'name': 'width', 'value': 'auto' },
+			{ 'name': 'minWidth', 'value': '232px' },
 			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
 		],
 		'list-header': [
