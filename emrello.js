@@ -175,8 +175,8 @@
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'maxHeight', 'value': '600px' },
-			{ 'name': 'maxWidth', 'value': '240px' },
+			{ 'name': 'maxHeight', 'value': '440px' },
+			{ 'name': 'minWidth', 'value': '232px' },
 			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
 		],
 		'list-header': [
@@ -200,6 +200,10 @@
 			{ 'name': 'textOverflow', 'value': 'ellipsis' },
 			{ 'name': 'wordWrap', 'value': 'break-word' },
 			{ 'name': 'color', 'value': '#4d4d4d' }
+		],
+		'card-list': [
+			{ 'name': 'overflowY', 'value': 'auto' },
+			{ 'name': 'overflowX', 'value': 'visible' }
 		],
 		'board-wrapper': [
 			{ 'name': 'overflow', 'value': 'hidden' },
@@ -233,16 +237,21 @@
 			{ 'name': 'color', 'value': '#fff' }
 		],
 		'board-canvas': [
-			{ 'name': 'maxHeight', 'value': '600px' },
+			{ 'name': 'maxHeight', 'value': '470px' },
 			{ 'name': 'paddingBottom', 'value': '10px' },
 			{ 'name': 'overflowX', 'value': 'auto' },
 			{ 'name': 'overflowY', 'value': 'hidden' }
 		],
 		'list-container': [
 			{ 'name': 'padding', 'value': '0 5px' },
-			{ 'name': 'display', 'value': 'inline-flex' }
+			{ 'name': 'display', 'value': 'inline-flex' },
+			{ 'name': 'display', 'value': '-ms-flexbox' },
+			{ 'name': 'position', 'value': 'relative' },
+			{ 'name': 'cssFloat', 'value': 'left' }
 		],
 		'list-wrap': [
+			{ 'name': 'position', 'value': 'relative' },
+			{ 'name': 'cssFloat', 'value': 'left' }
 		]
 	};
 	
@@ -417,17 +426,23 @@
 	var TEM_LIST = {
 		'type': 'div',
 		'styles': [ 'list' ],
-		'content': function (list) {
-			var children = [];
-			children.push(renderTemplate(TEM_LIST_HEADER, list));
-			
-			list.cards.forEach(function (card, ix, arr) {
-				card.members = [];
-				children.push(renderTemplate(TEM_CARD, card));
-			});
-			
-			return children;
-		}
+		'content': [
+			TEM_LIST_HEADER,
+			{
+				'type': 'div',
+				'styles': [ 'card-list' ],
+				'content': function (list) {
+					var children = [];
+					
+					list.cards.forEach(function (card, ix, arr) {
+						card.members = [];
+						children.push(renderTemplate(TEM_CARD, card));
+					});
+					
+					return children;
+				}
+			}
+		]
 	};
 	var TEM_LIST_WRAP = {
 		'type': 'div',
