@@ -172,7 +172,6 @@
 			'backgroundColor': '#e2e4e6',
 			'border': '1px solid #ccc',
 			'borderRadius': '3px',
-			'boxSizing': 'border-box',
 			'display': 'inline-block',
 			'maxHeight': '600px',
 			'maxWidth': '270px',
@@ -184,8 +183,7 @@
 			'minHeight': '19px',
 			'display': 'block',
 			'lineHeight': '18px',
-			'textAlign': 'left',
-			'color': '#4d4d4d'
+			'textAlign': 'left'
 		},
 		'list-header-title': {
 			'cursor': 'pointer',
@@ -198,7 +196,8 @@
 			'minWidth': '30px',
 			'overflow': 'hidden',
 			'textOverflow': 'ellipsis',
-			'wordWrap': 'break-word'
+			'wordWrap': 'break-word',
+			'color': '#4d4d4d'
 		},
 		'board-wrapper': {
 			'overflow': 'hidden',
