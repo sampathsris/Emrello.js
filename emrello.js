@@ -37,213 +37,213 @@
 	 * Styles used on Emrello's
 	 */
 	var STYLES = {
-		'card': {
-			'overflow': 'auto',
-			'padding': '6px 8px 4px',
-			'marginBottom': '4px',
-			'position': 'relative',
-			'display': 'block',
-			'cursor': 'pointer',
-			'color': '#4d4d4d',
-			'backgroundColor': '#fff',
-			'fontSize': '14px',
-			'lineHeight': '18px',
-			'border': '1px solid #ccc',
-			'borderRadius': '4px',
-			'width': '214px',
-			'textAlign': 'left'
-		},
-		'labels': {
-			'margin': '2px 0',
-			'overflow': 'auto',
-			'position': 'relative'
-		},
-		'label': {
-			'cssFloat': 'left',
-			'height': '8px',
-			'margin': '0 3px 3px 0',
-			'padding': '0',
-			'width': '39px',
-			'lineHeight': '100px',
-			'borderRadius': '3px',
-			'display': 'block',
-			'overflow': 'hidden',
-			'position': 'relative'
-		},
-		'label-green': {
-			'color': '#61bd4f',
-			'backgroundColor': '#61bd4f'
-		},
-		'label-yellow': {
-			'color': '#f2d600',
-			'backgroundColor': '#f2d600'
-		},
-		'label-orange': {
-			'color': '#ffab4a',
-			'backgroundColor': '#ffab4a'
-		},
-		'label-red': {
-			'color': '#eb5a46',
-			'backgroundColor': '#eb5a46'
-		},
-		'label-purple': {
-			'color': '#c377e0',
-			'backgroundColor': '#c377e0'
-		},
-		'label-blue': {
-			'color': '#0079bf',
-			'backgroundColor': '#0079bf'
-		},
-		'label-sky': {
-			'color': '#00c2e0',
-			'backgroundColor': '#00c2e0'
-		},
-		'label-lime': {
-			'color': '#51e898',
-			'backgroundColor': '#51e898'
-		},
-		'label-pink': {
-			'color': '#ff80ce',
-			'backgroundColor': '#ff80ce'
-		},
-		'label-black': {
-			'color': '#4d4d4d',
-			'backgroundColor': '#4d4d4d'
-		},
-		'card-title': {
-			'color': '#4d4d4d',
-			'clear': 'both',
-			'display': 'block',
-			'fontWeight': '400',
-			'margin': '0 0 4px',
-			'overflow': 'hidden',
-			'textDecoration': 'none',
-			'wordWrap': 'break-word',
-			'backgroundColor': 'transparent'
-		},
-		'badges': {
-			'cssFloat': 'left',
-			'paddingBottom': '2px'
-		},
-		'badge': {
-			'color': '#8c8c8c',
-			'display': 'inline-block',
-			'height': '14px',
-			'margin': '0 4px 2px 0',
-			'position': 'relative',
-			'textDecoration': 'none',
-			'verticalAlign': 'top',
-			'backgroundColor': '#eee',
-			'border': '1px solid #ddd',
-			'borderRadius': '2px',
-			'padding': '0 4px'
-		},
-		'badge-text': {
-			'height': '14px',
-			'fontSize': '11px',
-			'lineHeight': '14px',
-			'width': '16px',
-			'textAlign': 'center',
-			'verticalAlign': 'top',
-			'textDecoration': 'none'
-		},
-		'members': {
-			'cssFloat': 'right',
-			'margin': '2px -8px -4px 0px',
-		},
-		'member': {
-			'cssFloat': 'right',
-			'backgroundColor': '#d6dadc',
-			'borderRadius': '3px',
-			'color': '#a9a9a9',
-			'cursor': 'pointer',
-			'display': 'block',
-			'height': '30px',
-			'width': '30px',
-			'margin': '0 4px 4px 0',
-			'overflow': 'hidden',
-			'position': 'relative',
-			'textDecoration': 'none',
-			'lineHeight': '30px',
-			'fontWeight': 'bold',
-			'fontSize': '18px',
-			'textAlign': 'center'
-		},
-		'list': {
-			'margin': '5px',
-			'backgroundColor': '#e2e4e6',
-			'border': '1px solid #ccc',
-			'borderRadius': '3px',
-			'display': 'inline-block',
-			'maxHeight': '600px',
-			'maxWidth': '240px',
-			'padding': '4px 4px 0px 4px'
-		},
-		'list-header': {
-			'padding': '8px 4px',
-			'position': 'relative',
-			'minHeight': '19px',
-			'display': 'block',
-			'lineHeight': '18px',
-			'textAlign': 'left'
-		},
-		'list-header-title': {
-			'cursor': 'pointer',
-			'display': 'inline',
-			'fontSize': '15px',
-			'fontWeight': 'bold',
-			'lineHeight': '18px',
-			'margin': '0',
-			'minHeight': '19px',
-			'minWidth': '30px',
-			'overflow': 'hidden',
-			'textOverflow': 'ellipsis',
-			'wordWrap': 'break-word',
-			'color': '#4d4d4d'
-		},
-		'board-wrapper': {
-			'overflow': 'hidden',
-			'borderRadius': '6px'
-		},
-		'board-header': {
-			'height': 'auto',
-			'overflow': 'hidden',
-			'padding': '10px 8px'
-		},
-		'board-title': {
-			'cursor': 'pointer',
-			'fontSize': '18px',
-			'fontWeight': '700',
-			'lineHeight': '30px',
-			'paddingLeft': '4px',
-			'textDecoration': 'none',
-			'cssFloat': 'left',
-			'height': '30px',
-			'overflow': 'hidden',
-			'textOverflow': 'ellipsis',
-			'backgroundColor': 'transparent',
-			'color': '#fff'
-		},
-		'board-visibility': {
-			'fontSize': '12px',
-			'cssFloat': 'left',
-			'height': '30px',
-			'lineHeight': '30px',
-			'marginLeft': '30px',
-			'color': '#fff'
-		},
-		'board-canvas': {
-			'maxHeight': '600px',
-			'paddingBottom': '10px',
-			'overflowX': 'auto',
-			'overflowY': 'hidden'
-		},
-		'list-container': {
-			'padding': '0 5px',
-			'display': 'inline-flex'
-		},
-		'list-wrap': {
-		}
+		'card': [
+			{ 'name': 'overflow', 'value': 'auto' },
+			{ 'name': 'padding', 'value': '6px 8px 4px' },
+			{ 'name': 'marginBottom', 'value': '4px' },
+			{ 'name': 'position', 'value': 'relative' },
+			{ 'name': 'display', 'value': 'block' },
+			{ 'name': 'cursor', 'value': 'pointer' },
+			{ 'name': 'color', 'value': '#4d4d4d' },
+			{ 'name': 'backgroundColor', 'value': '#fff' },
+			{ 'name': 'fontSize', 'value': '14px' },
+			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'border', 'value': '1px solid #ccc' },
+			{ 'name': 'borderRadius', 'value': '4px' },
+			{ 'name': 'width', 'value': '214px' },
+			{ 'name': 'textAlign', 'value': 'left' }
+		],
+		'labels': [
+			{ 'name': 'margin', 'value': '2px 0' },
+			{ 'name': 'overflow', 'value': 'auto' },
+			{ 'name': 'position', 'value': 'relative' }
+		],
+		'label': [
+			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'height', 'value': '8px' },
+			{ 'name': 'margin', 'value': '0 3px 3px 0' },
+			{ 'name': 'padding', 'value': '0' },
+			{ 'name': 'width', 'value': '39px' },
+			{ 'name': 'lineHeight', 'value': '100px' },
+			{ 'name': 'borderRadius', 'value': '3px' },
+			{ 'name': 'display', 'value': 'block' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'position', 'value': 'relative' }
+		],
+		'label-green': [
+			{ 'name': 'color', 'value': '#61bd4f' },
+			{ 'name': 'backgroundColor', 'value': '#61bd4f' }
+		],
+		'label-yellow': [
+			{ 'name': 'color', 'value': '#f2d600' },
+			{ 'name': 'backgroundColor', 'value': '#f2d600' }
+		],
+		'label-orange': [
+			{ 'name': 'color', 'value': '#ffab4a' },
+			{ 'name': 'backgroundColor', 'value': '#ffab4a' }
+		],
+		'label-red': [
+			{ 'name': 'color', 'value': '#eb5a46' },
+			{ 'name': 'backgroundColor', 'value': '#eb5a46' }
+		],
+		'label-purple': [
+			{ 'name': 'color', 'value': '#c377e0' },
+			{ 'name': 'backgroundColor', 'value': '#c377e0' }
+		],
+		'label-blue': [
+			{ 'name': 'color', 'value': '#0079bf' },
+			{ 'name': 'backgroundColor', 'value': '#0079bf' }
+		],
+		'label-sky': [
+			{ 'name': 'color', 'value': '#00c2e0' },
+			{ 'name': 'backgroundColor', 'value': '#00c2e0' }
+		],
+		'label-lime': [
+			{ 'name': 'color', 'value': '#51e898' },
+			{ 'name': 'backgroundColor', 'value': '#51e898' }
+		],
+		'label-pink': [
+			{ 'name': 'color', 'value': '#ff80ce' },
+			{ 'name': 'backgroundColor', 'value': '#ff80ce' }
+		],
+		'label-black': [
+			{ 'name': 'color', 'value': '#4d4d4d' },
+			{ 'name': 'backgroundColor', 'value': '#4d4d4d' }
+		],
+		'card-title': [
+			{ 'name': 'color', 'value': '#4d4d4d' },
+			{ 'name': 'clear', 'value': 'both' },
+			{ 'name': 'display', 'value': 'block' },
+			{ 'name': 'fontWeight', 'value': '400' },
+			{ 'name': 'margin', 'value': '0 0 4px' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'textDecoration', 'value': 'none' },
+			{ 'name': 'wordWrap', 'value': 'break-word' },
+			{ 'name': 'backgroundColor', 'value': 'transparent' }
+		],
+		'badges': [
+			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'paddingBottom', 'value': '2px' }
+		],
+		'badge': [
+			{ 'name': 'color', 'value': '#8c8c8c' },
+			{ 'name': 'display', 'value': 'inline-block' },
+			{ 'name': 'height', 'value': '14px' },
+			{ 'name': 'margin', 'value': '0 4px 2px 0' },
+			{ 'name': 'position', 'value': 'relative' },
+			{ 'name': 'textDecoration', 'value': 'none' },
+			{ 'name': 'verticalAlign', 'value': 'top' },
+			{ 'name': 'backgroundColor', 'value': '#eee' },
+			{ 'name': 'border', 'value': '1px solid #ddd' },
+			{ 'name': 'borderRadius', 'value': '2px' },
+			{ 'name': 'padding', 'value': '0 4px' }
+		],
+		'badge-text': [
+			{ 'name': 'height', 'value': '14px' },
+			{ 'name': 'fontSize', 'value': '11px' },
+			{ 'name': 'lineHeight', 'value': '14px' },
+			{ 'name': 'width', 'value': '16px' },
+			{ 'name': 'textAlign', 'value': 'center' },
+			{ 'name': 'verticalAlign', 'value': 'top' },
+			{ 'name': 'textDecoration', 'value': 'none' }
+		],
+		'members': [
+			{ 'name': 'cssFloat', 'value': 'right' },
+			{ 'name': 'margin', 'value': '2px -8px -4px 0px' }
+		],
+		'member': [
+			{ 'name': 'cssFloat', 'value': 'right' },
+			{ 'name': 'backgroundColor', 'value': '#d6dadc' },
+			{ 'name': 'borderRadius', 'value': '3px' },
+			{ 'name': 'color', 'value': '#a9a9a9' },
+			{ 'name': 'cursor', 'value': 'pointer' },
+			{ 'name': 'display', 'value': 'block' },
+			{ 'name': 'height', 'value': '30px' },
+			{ 'name': 'width', 'value': '30px' },
+			{ 'name': 'margin', 'value': '0 4px 4px 0' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'position', 'value': 'relative' },
+			{ 'name': 'textDecoration', 'value': 'none' },
+			{ 'name': 'lineHeight', 'value': '30px' },
+			{ 'name': 'fontWeight', 'value': 'bold' },
+			{ 'name': 'fontSize', 'value': '18px' },
+			{ 'name': 'textAlign', 'value': 'center' }
+		],
+		'list': [
+			{ 'name': 'margin', 'value': '5px' },
+			{ 'name': 'backgroundColor', 'value': '#e2e4e6' },
+			{ 'name': 'border', 'value': '1px solid #ccc' },
+			{ 'name': 'borderRadius', 'value': '3px' },
+			{ 'name': 'display', 'value': 'inline-block' },
+			{ 'name': 'maxHeight', 'value': '600px' },
+			{ 'name': 'maxWidth', 'value': '240px' },
+			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
+		],
+		'list-header': [
+			{ 'name': 'padding', 'value': '8px 4px' },
+			{ 'name': 'position', 'value': 'relative' },
+			{ 'name': 'minHeight', 'value': '19px' },
+			{ 'name': 'display', 'value': 'block' },
+			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'textAlign', 'value': 'left' }
+		],
+		'list-header-title': [
+			{ 'name': 'cursor', 'value': 'pointer' },
+			{ 'name': 'display', 'value': 'inline' },
+			{ 'name': 'fontSize', 'value': '15px' },
+			{ 'name': 'fontWeight', 'value': 'bold' },
+			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'margin', 'value': '0' },
+			{ 'name': 'minHeight', 'value': '19px' },
+			{ 'name': 'minWidth', 'value': '30px' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'textOverflow', 'value': 'ellipsis' },
+			{ 'name': 'wordWrap', 'value': 'break-word' },
+			{ 'name': 'color', 'value': '#4d4d4d' }
+		],
+		'board-wrapper': [
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'borderRadius', 'value': '6px' }
+		],
+		'board-header': [
+			{ 'name': 'height', 'value': 'auto' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'padding', 'value': '10px 8px' }
+		],
+		'board-title': [
+			{ 'name': 'cursor', 'value': 'pointer' },
+			{ 'name': 'fontSize', 'value': '18px' },
+			{ 'name': 'fontWeight', 'value': '700' },
+			{ 'name': 'lineHeight', 'value': '30px' },
+			{ 'name': 'paddingLeft', 'value': '4px' },
+			{ 'name': 'textDecoration', 'value': 'none' },
+			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'height', 'value': '30px' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'textOverflow', 'value': 'ellipsis' },
+			{ 'name': 'backgroundColor', 'value': 'transparent' },
+			{ 'name': 'color', 'value': '#fff' }
+		],
+		'board-visibility': [
+			{ 'name': 'fontSize', 'value': '12px' },
+			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'height', 'value': '30px' },
+			{ 'name': 'lineHeight', 'value': '30px' },
+			{ 'name': 'marginLeft', 'value': '30px' },
+			{ 'name': 'color', 'value': '#fff' }
+		],
+		'board-canvas': [
+			{ 'name': 'maxHeight', 'value': '600px' },
+			{ 'name': 'paddingBottom', 'value': '10px' },
+			{ 'name': 'overflowX', 'value': 'auto' },
+			{ 'name': 'overflowY', 'value': 'hidden' }
+		],
+		'list-container': [
+			{ 'name': 'padding', 'value': '0 5px' },
+			{ 'name': 'display', 'value': 'inline-flex' }
+		],
+		'list-wrap': [
+		]
 	};
 	
 	/**
@@ -503,14 +503,20 @@
 			}
 		],
 		'postCreation': function(board) {
-			var styles = {};
+			var styles = [];
 			
 			if (board.prefs.backgroundColor) {
-				styles['backgroundColor'] = board.prefs.backgroundColor;
+				styles.push({
+					'name': 'backgroundColor',
+					'value': board.prefs.backgroundColor
+				});
 			}
 			
 			if (board.prefs.backgroundImage) {
-				styles['backgroundImage'] = 'url("' + board.prefs.backgroundImage + '")';
+				styles.push({
+					'name': 'backgroundImage',
+					'value': 'url("' + board.prefs.backgroundImage + '")'
+				});
 			}
 			
 			setDomStyles(this, styles);
@@ -621,9 +627,13 @@
 	 * Sets styles fetched from a template to a DOM element
 	 */
 	function setDomStyles(element, stylesheet) {
-		for (var attr in stylesheet) {
-			element.style[attr] = stylesheet[attr];
+		if (!stylesheet.forEach) {
+			console.log('aha!');
 		}
+		
+		stylesheet.forEach(function (cssProperty, ix, arr) {
+			element.style[cssProperty.name] = cssProperty.value;
+		});
 	}
 	
 	/**
