@@ -50,7 +50,7 @@
 			'lineHeight': '18px',
 			'border': '1px solid #ccc',
 			'borderRadius': '4px',
-			'width': '244px',
+			'width': '214px',
 			'textAlign': 'left'
 		},
 		'labels': {
@@ -63,7 +63,7 @@
 			'height': '8px',
 			'margin': '0 3px 3px 0',
 			'padding': '0',
-			'width': '42px',
+			'width': '39px',
 			'lineHeight': '100px',
 			'borderRadius': '3px',
 			'display': 'block',
@@ -134,6 +134,7 @@
 			'textDecoration': 'none',
 			'verticalAlign': 'top',
 			'backgroundColor': '#eee',
+			'border': '1px solid #ddd',
 			'borderRadius': '2px',
 			'padding': '0 4px 0 4px'
 		},
@@ -174,7 +175,7 @@
 			'borderRadius': '3px',
 			'display': 'inline-block',
 			'maxHeight': '600px',
-			'maxWidth': '270px',
+			'maxWidth': '240px',
 			'padding': '4px 4px 0px 4px'
 		},
 		'list-header': {
