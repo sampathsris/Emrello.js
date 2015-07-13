@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Emrello.js : Embed Trello cards, lists, and even boards on your web page with periodic updates.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Emrello.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/sampathsris/Emrello.js">View on GitHub</a>
+
+          <h1 id="project_title">Emrello.js</h1>
+          <h2 id="project_tagline">Embed Trello cards, lists, and even boards on your web page with periodic updates.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/sampathsris/Emrello.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/sampathsris/Emrello.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="emrellojs" class="anchor" href="#emrellojs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Emrello.js</h1>
+
+<p>Embed Trello cards, lists, and even boards on your web page with periodic updates.</p>
+
+<h2>
+<a id="embed-a-card" class="anchor" href="#embed-a-card" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embed a card</h2>
+
+<pre><code>&lt;div data-emrello-type="card" data-emrello-id="{card short name/id}"&gt;&lt;/div&gt;
+</code></pre>
+
+<h2>
+<a id="embed-a-list" class="anchor" href="#embed-a-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embed a list</h2>
+
+<pre><code>&lt;div data-emrello-type="list" data-emrello-id="{list id}"&gt;&lt;/div&gt;
+</code></pre>
+
+<h2>
+<a id="embed-a-board" class="anchor" href="#embed-a-board" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embed a board</h2>
+
+<pre><code>&lt;div data-emrello-type="board" data-emrello-id="{board short name/id}"&gt;&lt;/div&gt;
+</code></pre>
+
+<h2>
+<a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
+
+<p>Trello lets you embed cards and boards in your page like this:</p>
+
+<pre><code>&lt;!-- embed as image --&gt;
+&lt;img src="https://trello.com/c/ShRTNamE.png" /&gt;&lt;!-- a card --&gt;
+&lt;img src="https://trello.com/b/sHRtNaMe.png" /&gt;&lt;!-- a board --&gt;
+
+&lt;!-- embed as a JavaScript that renders the object by document.write --&gt;
+&lt;script src="https://trello.com/c/ShRTNamE.js"&gt;&lt;/script&gt;&lt;!-- a card --&gt;
+&lt;script src="https://trello.com/b/sHRtNaMe.js"&gt;&lt;/script&gt;&lt;!-- a board --&gt;
+
+&lt;!-- using an iframe --&gt;
+&lt;iframe src="https://trello.com/c/ShRTNamE.html"&gt;&lt;/iframe&gt;&lt;!-- a card --&gt;
+&lt;iframe src="https://trello.com/b/sHRtNaMe.html"&gt;&lt;/iframe&gt;&lt;!-- a board --&gt;
+</code></pre>
+
+<p>These methods get you a static card or board, and would not get updated with
+realtime changes (These files are generated every few minutes though). If you
+want to update your embedded Trello object more often than that, you need to
+use <strong>Emrello.js</strong>.</p>
+
+<p>With <strong>Emrello.js</strong> you get the ability to embed lists as well.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Emrello.js maintained by <a href="https://github.com/sampathsris">sampathsris</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
