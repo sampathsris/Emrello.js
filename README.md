@@ -20,6 +20,15 @@ Embed Trello cards, lists, and even boards on your web page with periodic update
 <div data-emrello-type="board" data-emrello-id="{board short name/id}"></div>
 ```
 
+## One more thing
+
+Add `emrello.js` at the end of your HTML page. You will also need a Trello API key,
+which you can easily generate from [here](https://trello.com/1/appKey/generate).
+
+```
+<script type="text/javascript" src="emrello.js" data-emrello-key="{app key}"></script>
+```
+
 ## Why?
 
 Trello lets you embed cards and boards in your page like this:
