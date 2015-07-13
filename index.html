@@ -42,19 +42,11 @@
 <pre><code>&lt;div data-emrello-type="card" data-emrello-id="{card short name/id}"&gt;&lt;/div&gt;
 </code></pre>
 
-<div data-emrello-type="card"
-     data-emrello-id="MAXjTMBK">
-</div>
-
 <h2>
 <a id="embed-a-list" class="anchor" href="#embed-a-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embed a list</h2>
 
 <pre><code>&lt;div data-emrello-type="list" data-emrello-id="{list id}"&gt;&lt;/div&gt;
 </code></pre>
-
-<div data-emrello-type="list"
-     data-emrello-id="55a1f9285743ffa5819da575">
-</div>
 
 <h2>
 <a id="embed-a-board" class="anchor" href="#embed-a-board" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embed a board</h2>
@@ -62,9 +54,14 @@
 <pre><code>&lt;div data-emrello-type="board" data-emrello-id="{board short name/id}"&gt;&lt;/div&gt;
 </code></pre>
 
-<div data-emrello-type="board"
-     data-emrello-id="vUMIXgBw">
-</div>
+<h2>
+<a id="one-more-thing" class="anchor" href="#one-more-thing" aria-hidden="true"><span class="octicon octicon-link"></span></a>One more thing</h2>
+
+<p>Add <code>emrello.js</code> at the end of your HTML page. You will also need a Trello API key,
+which you can easily generate from <a href="https://trello.com/1/appKey/generate">here</a>.</p>
+
+<pre><code>&lt;script type="text/javascript" src="emrello.js" data-emrello-key="{app key}"&gt;&lt;/script&gt;
+</code></pre>
 
 <h2>
 <a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
@@ -90,6 +87,18 @@ want to update your embedded Trello object more often than that, you need to
 use <strong>Emrello.js</strong>.</p>
 
 <p>With <strong>Emrello.js</strong> you get the ability to embed lists as well.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Emrello.js is still at alpha stage. It has to have a lot more things before
+it can ever be used in production. Your contributions are welcome.</p>
+
+<p>Head over to <a href="https://trello.com/b/vUMIXgBw">Emrello.js's Trello board</a>. You
+will finds some things that need immediate attention in "Bugs" and "Features
+to be added" lists.</p>
+
+<p>Kindly send all your pull requests to <code>dev</code> branch.</p>
       </section>
     </div>
 
@@ -102,11 +111,6 @@ use <strong>Emrello.js</strong>.</p>
     </div>
 
     
-
-<script type="text/javascript"
-        src="emrello.js"
-        data-emrello-key="ae139902ac7baf1a2484d28dd6724d15">
-</script>
 
   </body>
 </html>
