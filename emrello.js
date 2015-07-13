@@ -418,7 +418,7 @@
 		'styles': [ 'list-header' ],
 		'content': [
 			{
-				'type': 'h2',
+				'type': 'span',
 				'styles': [ 'list-header-title' ],
 				'content': function (list) {
 					return document.createTextNode(list.name);
