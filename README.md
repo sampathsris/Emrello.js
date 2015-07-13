@@ -53,3 +53,14 @@ want to update your embedded Trello object more often than that, you need to
 use **Emrello.js**.
 
 With **Emrello.js** you get the ability to embed lists as well.
+
+## Contributing
+
+Emrello.js is still at alpha stage. It has to have a lot more things before
+it can ever be used in production. Your contributions are welcome.
+
+Head over to [Emrello.js's Trello board](https://trello.com/b/vUMIXgBw). You
+will finds some things that need immediate attention in "Bugs" and "Features
+to be added" lists.
+
+Kindly send all your pull requests to `dev` branch.
