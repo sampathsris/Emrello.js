@@ -55,7 +55,7 @@
 			{ 'name': 'lineHeight', 'value': '18px' },
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '4px' },
-			{ 'name': 'maxWidth', 'value': '214px' },
+			{ 'name': 'maxWidth', 'value': '234px' },
 			{ 'name': 'width', 'value': 'auto' },
 			{ 'name': 'textAlign', 'value': 'left' }
 		],
@@ -134,33 +134,35 @@
 		'badge': [
 			{ 'name': 'color', 'value': '#8c8c8c' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'height', 'value': '14px' },
-			{ 'name': 'margin', 'value': '0 4px 2px 0' },
+			{ 'name': 'height', 'value': '18px' },
+			{ 'name': 'margin', 'value': '0 4px 4px 0' },
 			{ 'name': 'position', 'value': 'relative' },
 			{ 'name': 'textDecoration', 'value': 'none' },
 			{ 'name': 'verticalAlign', 'value': 'top' },
-			{ 'name': 'backgroundColor', 'value': '#eee' },
-			{ 'name': 'border', 'value': '1px solid #ddd' },
+			{ 'name': 'backgroundColor', 'value': '#f5f5f5' },
 			{ 'name': 'borderRadius', 'value': '2px' },
-			{ 'name': 'padding', 'value': '0 4px' }
+			{ 'name': 'padding', 'value': '1px' }
 		],
 		'badge-text': [
-			{ 'name': 'height', 'value': '14px' },
-			{ 'name': 'fontSize', 'value': '11px' },
-			{ 'name': 'lineHeight', 'value': '14px' },
-			{ 'name': 'width', 'value': '16px' },
+			{ 'name': 'height', 'value': '18px' },
+			{ 'name': 'fontSize', 'value': '12px' },
+			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'width', 'value': '18px' },
 			{ 'name': 'textAlign', 'value': 'center' },
 			{ 'name': 'verticalAlign', 'value': 'top' },
-			{ 'name': 'paddingLeft', 'value': '4px' },
+			{ 'name': 'paddingLeft', 'value': '2px' },
 			{ 'name': 'textDecoration', 'value': 'none' }
 		],
 		'badge-icon': [
-			{ 'name': 'height', 'value': '14px' },
-			{ 'name': 'fontSize', 'value': '11px' },
+			{ 'name': 'height', 'value': '18px' },
+			{ 'name': 'width', 'value': '18px' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'fontSize', 'value': '12px' },
 			{ 'name': 'fontFamily', 'value': '\'Emrello-Icons\'' },
-			{ 'name': 'lineHeight', 'value': '14px' },
+			{ 'name': 'lineHeight', 'value': '18px' },
 			{ 'name': 'textAlign', 'value': 'center' },
 			{ 'name': 'verticalAlign', 'value': 'top' },
+			{ 'name': 'padding', 'value': '2px' },
 			{ 'name': 'textDecoration', 'value': 'none' }
 		],
 		'members': [
@@ -191,9 +193,9 @@
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'maxHeight', 'value': '450px' },
+			{ 'name': 'maxHeight', 'value': '470px' },
 			{ 'name': 'width', 'value': 'auto' },
-			{ 'name': 'minWidth', 'value': '232px' },
+			{ 'name': 'minWidth', 'value': '252px' },
 			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
 		],
 		'list-header': [
@@ -299,6 +301,10 @@
 			
 			card.labels.forEach(function (curr, ix, arr) {
 				labels.push(renderTemplate(TEM_LABEL, curr));
+				
+				if (labels.length > 0 && labels.length % 5 === 0) {
+					labels[ix].style.marginRight = '0';
+				}
 			});
 			
 			return labels;
