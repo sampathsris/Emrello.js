@@ -34,6 +34,11 @@
 	var PREFIX = 'data-emrello-';
 	
 	/**
+	 * Prefix on Emrello specific CSS rules
+	 */
+	var CSS_PREFIX = 'css-emrello-';
+	
+	/**
 	 * Styles used on Emrello's
 	 */
 	var STYLES = {
@@ -50,7 +55,7 @@
 			{ 'name': 'lineHeight', 'value': '18px' },
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '4px' },
-			{ 'name': 'maxWidth', 'value': '214px' },
+			{ 'name': 'maxWidth', 'value': '234px' },
 			{ 'name': 'width', 'value': 'auto' },
 			{ 'name': 'textAlign', 'value': 'left' }
 		],
@@ -129,23 +134,35 @@
 		'badge': [
 			{ 'name': 'color', 'value': '#8c8c8c' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'height', 'value': '14px' },
-			{ 'name': 'margin', 'value': '0 4px 2px 0' },
+			{ 'name': 'height', 'value': '18px' },
+			{ 'name': 'margin', 'value': '0 4px 4px 0' },
 			{ 'name': 'position', 'value': 'relative' },
 			{ 'name': 'textDecoration', 'value': 'none' },
 			{ 'name': 'verticalAlign', 'value': 'top' },
-			{ 'name': 'backgroundColor', 'value': '#eee' },
-			{ 'name': 'border', 'value': '1px solid #ddd' },
+			{ 'name': 'backgroundColor', 'value': '#f5f5f5' },
 			{ 'name': 'borderRadius', 'value': '2px' },
-			{ 'name': 'padding', 'value': '0 4px' }
+			{ 'name': 'padding', 'value': '1px' }
 		],
 		'badge-text': [
-			{ 'name': 'height', 'value': '14px' },
-			{ 'name': 'fontSize', 'value': '11px' },
-			{ 'name': 'lineHeight', 'value': '14px' },
-			{ 'name': 'width', 'value': '16px' },
+			{ 'name': 'height', 'value': '18px' },
+			{ 'name': 'fontSize', 'value': '12px' },
+			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'width', 'value': '18px' },
 			{ 'name': 'textAlign', 'value': 'center' },
 			{ 'name': 'verticalAlign', 'value': 'top' },
+			{ 'name': 'paddingLeft', 'value': '2px' },
+			{ 'name': 'textDecoration', 'value': 'none' }
+		],
+		'badge-icon': [
+			{ 'name': 'height', 'value': '18px' },
+			{ 'name': 'width', 'value': '18px' },
+			{ 'name': 'overflow', 'value': 'hidden' },
+			{ 'name': 'fontSize', 'value': '12px' },
+			{ 'name': 'fontFamily', 'value': '\'Emrello-Icons\'' },
+			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'textAlign', 'value': 'center' },
+			{ 'name': 'verticalAlign', 'value': 'top' },
+			{ 'name': 'padding', 'value': '2px' },
 			{ 'name': 'textDecoration', 'value': 'none' }
 		],
 		'members': [
@@ -176,9 +193,9 @@
 			{ 'name': 'border', 'value': '1px solid #ccc' },
 			{ 'name': 'borderRadius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'maxHeight', 'value': '450px' },
+			{ 'name': 'maxHeight', 'value': '470px' },
 			{ 'name': 'width', 'value': 'auto' },
-			{ 'name': 'minWidth', 'value': '232px' },
+			{ 'name': 'minWidth', 'value': '252px' },
 			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
 		],
 		'list-header': [
@@ -284,6 +301,10 @@
 			
 			card.labels.forEach(function (curr, ix, arr) {
 				labels.push(renderTemplate(TEM_LABEL, curr));
+				
+				if (labels.length > 0 && labels.length % 5 === 0) {
+					labels[ix].style.marginRight = '0';
+				}
 			});
 			
 			return labels;
@@ -326,16 +347,32 @@
 		'content': [
 			{
 				'type': 'span',
+				'styles': [ 'badge-icon' ],
+				'content': function (badge) {
+					var icon;
+					switch(badge.type) {
+					case 'description': icon = '\ue604'; break;
+					case 'comments': icon = '\ue601'; break;
+					case 'attachments': icon = '\ue603'; break;
+					case 'checklist': icon = '\ue608'; break;
+					case 'votes': icon = '\ue602'; break;
+					case 'due': icon = '\ue600'; break;
+					}
+					
+					return document.createTextNode(icon);
+				}
+			},
+			{
+				'type': 'span',
 				'styles': [ 'badge-text' ],
 				'content': function (badge) {
-					var text;
+					var text = '';
 					
 					switch(badge.type) {
-					case 'description': text = '='; break;
-					case 'comments': text = '% ' + badge.count; break;
-					case 'attachments': text = '@ ' + badge.count; break;
-					case 'checklist': text = '# ' + badge.checked + '/' + badge.total; break;
-					case 'votes': text = '^ ' + badge.count + ' vote' + (badge.count > 1 ? 's' : ''); break;
+					case 'comments': text = badge.count; break;
+					case 'attachments': text = badge.count; break;
+					case 'checklist': text = badge.checked + '/' + badge.total; break;
+					case 'votes': text = badge.count + ' vote' + (badge.count > 1 ? 's' : ''); break;
 					case 'due': text = getShortDateString(badge.dueDate); break;
 					}
 					
@@ -343,6 +380,13 @@
 				}
 			}
 		]
+	};
+	var TEM_BADGE_ICON = {
+		'type': 'span',
+		'styles': [ 'badge-icon' ],
+		'content': function (icon) {
+			return icon;
+		}
 	};
 	var TEM_BADGE_GROUP = {
 		'type': 'div',
@@ -844,6 +888,8 @@
 		emrello.key = emrelloScript.getAttribute(PREFIX + 'key');
 		if (!emrello.key) return;
 
+		insertCssRules();
+		
 		// get embedded cards, lists, and boards
 		var embeddings = document.querySelectorAll('div[' + PREFIX + 'id]');
 		if (embeddings.length === 0) return;
@@ -856,6 +902,116 @@
 		for (var j = 0; j < emrello.length; j++) {
 			emrello[j].update();
 		}
+	}
+	
+	/**
+	 * Insert global CSS rules
+	 */
+	function insertCssRules() {
+		// Thanks to http://davidwalsh.name/add-rules-stylesheets
+		/**
+		 * Insert a single CSS rule to a stylesheet
+		 */
+		function addCssRule(sheet, selector, rules, index) {
+			if('insertRule' in sheet) {
+				sheet.insertRule(selector + "{" + rules + "}", index);
+			} else if('addRule' in sheet) {
+				sheet.addRule(selector, rules, index);
+			}
+		}
+	
+		// create a new stylesheet and insert into the document
+		// all our styles are going to be added to this stylesheet
+		var sheet = (function() {
+			var style = document.createElement("style");
+			style.appendChild(document.createTextNode("")); // WebKit hack
+			document.head.appendChild(style);
+
+			return style.sheet;
+		})();
+		
+		// insert the icon font
+		addCssRule(sheet, '@font-face',
+			'font-family: \'Emrello-Icons\';' +
+			'src: url(data:application/x-font-ttf;charset=utf-8;' +
+			'base64,AAEAAAALAIAAAwAwT1MvMg8SAv8AAAC8AAAAYGNtYXAa' +
+			'VsyPAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5ZhD2CsAAAAF' +
+			'4AAAHEGhlYWQGsaDxAAAIiAAAADZoaGVhB8IDzgAACMAAAAAkaG' +
+			'10eCoAAH4AAAjkAAAANGxvY2EH+gk4AAAJGAAAABxtYXhwAB8As' +
+			'wAACTQAAAAgbmFtZaNkHlEAAAlUAAABznBvc3QAAwAAAAALJAAA' +
+			'ACAAAwPNAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAA' +
+			'AAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADmCAPA/8AAQA' +
+			'PAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADA' +
+			'AAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAg5gj//f//AAAA' +
+			'AAAg5gD//f//AAH/4xoEAAMAAQAAAAAAAAAAAAAAAQAB//8ADwA' +
+			'BAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAA' +
+			'AAAQAAAAAAAAAAAAIAADc5AQAAAAADAAD/wAQAA8AABQAaAC8AA' +
+			'CUnETMVFwMiDgIVFB4CMzI+AjU0LgIjESIuAjU0PgIzMh4CFRQO' +
+			'AiMCk9OAre1qu4tQUIu7amq7i1BQi7tqUItpPDxpi1BQi2k8PGm' +
+			'LUNPSARvlrgKTUIu7amq7i1BQi7tqaruLUPyAPGmLUFCLaTw8aY' +
+			'tQUItpPAAAAAIAAP/ABAADgAAzAFgAAAEiBgcOAQcOARUUFhceA' +
+			'RceARceARc+ATc+ATM6ARceATMyNjc+ATc+ATU0JicuAScuASM1' +
+			'MTIeAhUUDgIjIiYnDgMHNT4BNTQmJy4DNTQ+AjMCAClPJiM+GjI' +
+			'1ERARMx8XHQQCAQEFCwYSLxkECAQQIBApTyYjPhoyNTUyGj4jJk' +
+			'8paruLUFCLu2oUKBQpWl1gMDNNAQEsRjEbUIu7agMADQ0MIhUpZ' +
+			'DYeOxsdMxQPLhsJEgkECgYSEwECAg0NDCIVKWQ2NmQpFSIMDQ2A' +
+			'QXGYVlaYcUEDAikzHQoCGxpXNAcPBxxIUlwxVphxQQAAAAADAAD' +
+			'/wAQAA8AAFAApAC8AABMUHgIzMj4CNTQuAiMiDgIVIRQOAiMiLg' +
+			'I1ND4CMzIeAhUHNwkBFzcAUIu7amq7i1BQi7tqaruLUAOgQXGYV' +
+			'laYcUFBcZhWVphxQd1a/uP+41rDAcBqu4tQUIu7amq7i1BQi7tq' +
+			'VphxQUFxmFZWmHFBQXGYVp1aAR7+4lrCAAABAH4AHgNdA30ASAA' +
+			'AAScBBhQXFjI3AT4BNCYnLgEiBgcBBjAxDgEUFhceATI2NzgBNz' +
+			'EBJwEGMDEOASImJy4BNDY3OAE3MQE2MhcWFAcBBiInJjQ3AQKaQ' +
+			'f67KCgocygBhiEiIiEiVVhUIv5nAS8vLy8vdnt2LwEBF0H+6QEi' +
+			'VFhUISIhISIBAZkocikoKP56DScNDQ0BRQJ5Qf67KHIpKCgBhiJ' +
+			'UWFUiISIiIf5nAS92e3YvLy8vLwEBF0H+6QEiISEiIVRYVCIBAZ' +
+			'koKClyKP56DQ0OJg0BRQAABQAAAAAEAAOAAAMABwALAA8AEwAAE' +
+			'yEVIRUhFSEVIRUhFSEVIRUhFSEABAD8AAQA/AAEAPwABAD8AAQA' +
+			'/AADgIBAgECAQIBAgAAAAAIAAP/AAoADgAAaACUAAAEjNTQmKwE' +
+			'iBh0BIyIGFREUFjMhMjY1ETQmIyU0NjsBMhYdASE1AlAQcU+AT3' +
+			'EQFBwcFAIgFBwcFP5wJhqAGib/AAIAwE9xcU/AHBT+IBQcHBQB4' +
+			'BQcwBomJhrAwAAAAAADAAAAAAQAA0AAGgAlAD4AAAEhNTQmIyEi' +
+			'Bh0BISIGFREUFjMhMjY1ETQmIyU4ATEhOAExFSE1ASMVFAYrASI' +
+			'mPQEhFRQGKwEiJj0BIzUhFQPA/wAmGv8AGib/ABomJhoDgBomJh' +
+			'r9wAEA/wACQIATDUANE/6AEw1ADROAA4ACwEAaJiYaQCYa/cAaJ' +
+			'iYaAkAaJkBAQP7AYA0TEw1gYA0TEw1gQEAAAAARAAD/wAPAA4AA' +
+			'FAAdACYALQA5AEUATABVAFwAaAB0AHsAhACPAJoApQCwAAABIg4' +
+			'CFRQeAjMyPgI1NC4CIwE+ATczDgEHIwEOAQcjPgE3MyEeARcjNT' +
+			'MnNR4BFx4BFx4BFyMnPgE3PgE3FSM+ATcXFSM+ATczAS4BJzMeA' +
+			'RcjNzMVIy4BJxcVLgEnLgEnLgEnMxcOAQcOAQc1Mw4BByc1Mw4B' +
+			'ByM3LgEnMx4BFyM3Iy4BJx4BFx4BFyU+ATcOAQcjPgE3AzMeARc' +
+			'uAScuAScFDgEHPgE3Mw4BBwHgY6+DS0uDr2Njr4NLS4OvYwEQBg' +
+			'gBgAMPDXD94AYIAYADDw1wAd4HCQG/rq4LFgoUJhALEwibtRAmF' +
+			'AoWC5sIEwt1vwEJB67+oA0PA4ABCAZwob+uBwkBvwsWChQmEAsT' +
+			'CJu1ECYUChYLmwgTC3W/AQkHrv8BCAZwDQ8DgEBgDiYYIDoZEB0' +
+			'M/XsZOiAYJg5gDB0QOWAOJhggOhkQHQwChRk6IBgmDmAMHRADgE' +
+			'uDr2Njr4NLS4OvY2Ovg0v9gB5BISFAHwFAHkEhIUAfH0AhgEC7A' +
+			'wsHDisbEikXUhsrDgcLA7sXKRKSgCFAH/7AH0AhIUEegIAfQCHA' +
+			'uwMLBw4rGxIpF1IbKw4HCwO7FykSkoAhQB/AIUEeH0AhwCxNHg8' +
+			'pGRAjE0YZKQ8eTSwTIxD9+ixNHg8pGRAjE0YZKQ8eTSwTIxAAAg' +
+			'AA/8AEAAPAABAAFwAAASEiBhURFBYzITI2NRE0JiMBJzcXARcBA' +
+			'4D9ADVLSzUDADVLSzX+QO1akwEzWv5zA8BLNf0ANUtLNQMANUv8' +
+			'5e5akgEyWv5yAAEAAAABAAABkJnJXw889QALBAAAAAAA0ckuOgA' +
+			'AAADRyS46AAD/wAQAA8AAAAAIAAIAAAAAAAAAAQAAA8D/wAAABA' +
+			'AAAAAABAAAAQAAAAAAAAAAAAAAAAAAAA0EAAAAAAAAAAAAAAACA' +
+			'AAABAAAAAQAAAAEAAAABAAAfgQAAAAEAAAABAAAAAQAAAAEAAAA' +
+			'AAAAAAAKABQAHgBkAOQBLAGaAcAB+AJMA1wDiAABAAAADQCxABE' +
+			'AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEADQ' +
+			'AAAAEAAAAAAAIABwCWAAEAAAAAAAMADQBIAAEAAAAAAAQADQCrA' +
+			'AEAAAAAAAUACwAnAAEAAAAAAAYADQBvAAEAAAAAAAoAGgDSAAMA' +
+			'AQQJAAEAGgANAAMAAQQJAAIADgCdAAMAAQQJAAMAGgBVAAMAAQQ' +
+			'JAAQAGgC4AAMAAQQJAAUAFgAyAAMAAQQJAAYAGgB8AAMAAQQJAA' +
+			'oANADsRW1yZWxsby1JY29ucwBFAG0AcgBlAGwAbABvAC0ASQBjA' +
+			'G8AbgBzVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAw' +
+			'RW1yZWxsby1JY29ucwBFAG0AcgBlAGwAbABvAC0ASQBjAG8AbgB' +
+			'zRW1yZWxsby1JY29ucwBFAG0AcgBlAGwAbABvAC0ASQBjAG8Abg' +
+			'BzUmVndWxhcgBSAGUAZwB1AGwAYQByRW1yZWxsby1JY29ucwBFA' +
+			'G0AcgBlAGwAbABvAC0ASQBjAG8AbgBzRm9udCBnZW5lcmF0ZWQg' +
+			'YnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQB' +
+			'kACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAA' +
+			'AAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format(\'truetype\');' +
+			'font-weight: normal;' +
+			'font-style: normal;');
 	}
 	
 	/********* entry point *********/
