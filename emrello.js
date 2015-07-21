@@ -36,7 +36,7 @@
 	/**
 	 * Prefix on Emrello specific CSS rules
 	 */
-	var CSS_PREFIX = 'css-emrello-';
+	var CSS_PREFIX = 'emrello-css-';
 	
 	/**
 	 * Styles used on Emrello's
@@ -50,14 +50,14 @@
 			{ 'name': 'display', 'value': 'block' },
 			{ 'name': 'cursor', 'value': 'pointer' },
 			{ 'name': 'color', 'value': '#4d4d4d' },
-			{ 'name': 'backgroundColor', 'value': '#fff' },
-			{ 'name': 'fontSize', 'value': '14px' },
-			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'background-color', 'value': '#fff' },
+			{ 'name': 'font-size', 'value': '14px' },
+			{ 'name': 'line-height', 'value': '18px' },
 			{ 'name': 'border', 'value': '1px solid #ccc' },
-			{ 'name': 'borderRadius', 'value': '4px' },
-			{ 'name': 'maxWidth', 'value': '234px' },
+			{ 'name': 'border-radius', 'value': '4px' },
+			{ 'name': 'max-width', 'value': '234px' },
 			{ 'name': 'width', 'value': 'auto' },
-			{ 'name': 'textAlign', 'value': 'left' }
+			{ 'name': 'text-align', 'value': 'left' }
 		],
 		'labels': [
 			{ 'name': 'margin', 'value': '2px 0' },
@@ -65,71 +65,71 @@
 			{ 'name': 'position', 'value': 'relative' }
 		],
 		'label': [
-			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'float', 'value': 'left' },
 			{ 'name': 'height', 'value': '8px' },
 			{ 'name': 'margin', 'value': '0 3px 3px 0' },
 			{ 'name': 'padding', 'value': '0' },
 			{ 'name': 'width', 'value': '18%' },
-			{ 'name': 'lineHeight', 'value': '100px' },
-			{ 'name': 'borderRadius', 'value': '3px' },
+			{ 'name': 'line-height', 'value': '100px' },
+			{ 'name': 'border-radius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'block' },
 			{ 'name': 'overflow', 'value': 'hidden' },
 			{ 'name': 'position', 'value': 'relative' }
 		],
 		'label-green': [
 			{ 'name': 'color', 'value': '#61bd4f' },
-			{ 'name': 'backgroundColor', 'value': '#61bd4f' }
+			{ 'name': 'background-color', 'value': '#61bd4f' }
 		],
 		'label-yellow': [
 			{ 'name': 'color', 'value': '#f2d600' },
-			{ 'name': 'backgroundColor', 'value': '#f2d600' }
+			{ 'name': 'background-color', 'value': '#f2d600' }
 		],
 		'label-orange': [
 			{ 'name': 'color', 'value': '#ffab4a' },
-			{ 'name': 'backgroundColor', 'value': '#ffab4a' }
+			{ 'name': 'background-color', 'value': '#ffab4a' }
 		],
 		'label-red': [
 			{ 'name': 'color', 'value': '#eb5a46' },
-			{ 'name': 'backgroundColor', 'value': '#eb5a46' }
+			{ 'name': 'background-color', 'value': '#eb5a46' }
 		],
 		'label-purple': [
 			{ 'name': 'color', 'value': '#c377e0' },
-			{ 'name': 'backgroundColor', 'value': '#c377e0' }
+			{ 'name': 'background-color', 'value': '#c377e0' }
 		],
 		'label-blue': [
 			{ 'name': 'color', 'value': '#0079bf' },
-			{ 'name': 'backgroundColor', 'value': '#0079bf' }
+			{ 'name': 'background-color', 'value': '#0079bf' }
 		],
 		'label-sky': [
 			{ 'name': 'color', 'value': '#00c2e0' },
-			{ 'name': 'backgroundColor', 'value': '#00c2e0' }
+			{ 'name': 'background-color', 'value': '#00c2e0' }
 		],
 		'label-lime': [
 			{ 'name': 'color', 'value': '#51e898' },
-			{ 'name': 'backgroundColor', 'value': '#51e898' }
+			{ 'name': 'background-color', 'value': '#51e898' }
 		],
 		'label-pink': [
 			{ 'name': 'color', 'value': '#ff80ce' },
-			{ 'name': 'backgroundColor', 'value': '#ff80ce' }
+			{ 'name': 'background-color', 'value': '#ff80ce' }
 		],
 		'label-black': [
 			{ 'name': 'color', 'value': '#4d4d4d' },
-			{ 'name': 'backgroundColor', 'value': '#4d4d4d' }
+			{ 'name': 'background-color', 'value': '#4d4d4d' }
 		],
 		'card-title': [
 			{ 'name': 'color', 'value': '#4d4d4d' },
 			{ 'name': 'clear', 'value': 'both' },
 			{ 'name': 'display', 'value': 'block' },
-			{ 'name': 'fontWeight', 'value': '400' },
+			{ 'name': 'font-weight', 'value': '400' },
 			{ 'name': 'margin', 'value': '0 0 4px' },
 			{ 'name': 'overflow', 'value': 'hidden' },
-			{ 'name': 'textDecoration', 'value': 'none' },
-			{ 'name': 'wordWrap', 'value': 'break-word' },
-			{ 'name': 'backgroundColor', 'value': 'transparent' }
+			{ 'name': 'text-decoration', 'value': 'none' },
+			{ 'name': 'word-wrap', 'value': 'break-word' },
+			{ 'name': 'background-color', 'value': 'transparent' }
 		],
 		'badges': [
-			{ 'name': 'cssFloat', 'value': 'left' },
-			{ 'name': 'paddingBottom', 'value': '2px' }
+			{ 'name': 'float', 'value': 'left' },
+			{ 'name': 'padding-bottom', 'value': '2px' }
 		],
 		'badge': [
 			{ 'name': 'color', 'value': '#8c8c8c' },
@@ -137,42 +137,42 @@
 			{ 'name': 'height', 'value': '18px' },
 			{ 'name': 'margin', 'value': '0 4px 4px 0' },
 			{ 'name': 'position', 'value': 'relative' },
-			{ 'name': 'textDecoration', 'value': 'none' },
-			{ 'name': 'verticalAlign', 'value': 'top' },
-			{ 'name': 'backgroundColor', 'value': '#f5f5f5' },
-			{ 'name': 'borderRadius', 'value': '2px' },
+			{ 'name': 'text-decoration', 'value': 'none' },
+			{ 'name': 'vertical-align', 'value': 'top' },
+			{ 'name': 'background-color', 'value': '#f5f5f5' },
+			{ 'name': 'border-radius', 'value': '2px' },
 			{ 'name': 'padding', 'value': '1px' }
 		],
 		'badge-text': [
 			{ 'name': 'height', 'value': '18px' },
-			{ 'name': 'fontSize', 'value': '12px' },
-			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'font-size', 'value': '12px' },
+			{ 'name': 'line-height', 'value': '18px' },
 			{ 'name': 'width', 'value': '18px' },
-			{ 'name': 'textAlign', 'value': 'center' },
-			{ 'name': 'verticalAlign', 'value': 'top' },
-			{ 'name': 'paddingLeft', 'value': '2px' },
-			{ 'name': 'textDecoration', 'value': 'none' }
+			{ 'name': 'text-align', 'value': 'center' },
+			{ 'name': 'vertical-align', 'value': 'top' },
+			{ 'name': 'padding-left', 'value': '2px' },
+			{ 'name': 'text-decoration', 'value': 'none' }
 		],
 		'badge-icon': [
 			{ 'name': 'height', 'value': '18px' },
 			{ 'name': 'width', 'value': '18px' },
 			{ 'name': 'overflow', 'value': 'hidden' },
-			{ 'name': 'fontSize', 'value': '12px' },
-			{ 'name': 'fontFamily', 'value': '\'Emrello-Icons\'' },
-			{ 'name': 'lineHeight', 'value': '18px' },
-			{ 'name': 'textAlign', 'value': 'center' },
-			{ 'name': 'verticalAlign', 'value': 'top' },
+			{ 'name': 'font-size', 'value': '12px' },
+			{ 'name': 'font-family', 'value': '\'Emrello-Icons\'' },
+			{ 'name': 'line-height', 'value': '18px' },
+			{ 'name': 'text-align', 'value': 'center' },
+			{ 'name': 'vertical-align', 'value': 'top' },
 			{ 'name': 'padding', 'value': '2px' },
-			{ 'name': 'textDecoration', 'value': 'none' }
+			{ 'name': 'text-decoration', 'value': 'none' }
 		],
 		'members': [
-			{ 'name': 'cssFloat', 'value': 'right' },
+			{ 'name': 'float', 'value': 'right' },
 			{ 'name': 'margin', 'value': '2px -8px -4px 0px' }
 		],
 		'member': [
-			{ 'name': 'cssFloat', 'value': 'right' },
-			{ 'name': 'backgroundColor', 'value': '#d6dadc' },
-			{ 'name': 'borderRadius', 'value': '3px' },
+			{ 'name': 'float', 'value': 'right' },
+			{ 'name': 'background-color', 'value': '#d6dadc' },
+			{ 'name': 'border-radius', 'value': '3px' },
 			{ 'name': 'color', 'value': '#a9a9a9' },
 			{ 'name': 'cursor', 'value': 'pointer' },
 			{ 'name': 'display', 'value': 'block' },
@@ -181,53 +181,53 @@
 			{ 'name': 'margin', 'value': '0 4px 4px 0' },
 			{ 'name': 'overflow', 'value': 'hidden' },
 			{ 'name': 'position', 'value': 'relative' },
-			{ 'name': 'textDecoration', 'value': 'none' },
-			{ 'name': 'lineHeight', 'value': '30px' },
-			{ 'name': 'fontWeight', 'value': 'bold' },
-			{ 'name': 'fontSize', 'value': '18px' },
-			{ 'name': 'textAlign', 'value': 'center' }
+			{ 'name': 'text-decoration', 'value': 'none' },
+			{ 'name': 'line-height', 'value': '30px' },
+			{ 'name': 'font-weight', 'value': 'bold' },
+			{ 'name': 'font-size', 'value': '18px' },
+			{ 'name': 'text-align', 'value': 'center' }
 		],
 		'list': [
 			{ 'name': 'margin', 'value': '5px' },
-			{ 'name': 'backgroundColor', 'value': '#e2e4e6' },
+			{ 'name': 'background-color', 'value': '#e2e4e6' },
 			{ 'name': 'border', 'value': '1px solid #ccc' },
-			{ 'name': 'borderRadius', 'value': '3px' },
+			{ 'name': 'border-radius', 'value': '3px' },
 			{ 'name': 'display', 'value': 'inline-block' },
-			{ 'name': 'maxHeight', 'value': '470px' },
+			{ 'name': 'max-height', 'value': '470px' },
 			{ 'name': 'width', 'value': 'auto' },
-			{ 'name': 'minWidth', 'value': '252px' },
+			{ 'name': 'min-width', 'value': '252px' },
 			{ 'name': 'padding', 'value': '4px 4px 0px 4px' }
 		],
 		'list-header': [
 			{ 'name': 'padding', 'value': '8px 4px' },
 			{ 'name': 'position', 'value': 'relative' },
-			{ 'name': 'minHeight', 'value': '19px' },
+			{ 'name': 'min-height', 'value': '19px' },
 			{ 'name': 'display', 'value': 'block' },
-			{ 'name': 'lineHeight', 'value': '18px' },
-			{ 'name': 'textAlign', 'value': 'left' }
+			{ 'name': 'line-height', 'value': '18px' },
+			{ 'name': 'text-align', 'value': 'left' }
 		],
 		'list-header-title': [
 			{ 'name': 'cursor', 'value': 'pointer' },
 			{ 'name': 'display', 'value': 'inline' },
-			{ 'name': 'fontSize', 'value': '15px' },
-			{ 'name': 'fontWeight', 'value': 'bold' },
-			{ 'name': 'lineHeight', 'value': '18px' },
+			{ 'name': 'font-size', 'value': '15px' },
+			{ 'name': 'font-weight', 'value': 'bold' },
+			{ 'name': 'line-height', 'value': '18px' },
 			{ 'name': 'margin', 'value': '0' },
-			{ 'name': 'minHeight', 'value': '19px' },
-			{ 'name': 'minWidth', 'value': '30px' },
+			{ 'name': 'min-height', 'value': '19px' },
+			{ 'name': 'min-width', 'value': '30px' },
 			{ 'name': 'overflow', 'value': 'hidden' },
-			{ 'name': 'textOverflow', 'value': 'ellipsis' },
-			{ 'name': 'wordWrap', 'value': 'break-word' },
+			{ 'name': 'text-overflow', 'value': 'ellipsis' },
+			{ 'name': 'word-wrap', 'value': 'break-word' },
 			{ 'name': 'color', 'value': '#4d4d4d' }
 		],
 		'card-list': [
-			{ 'name': 'overflowY', 'value': 'auto' },
-			{ 'name': 'overflowX', 'value': 'visible' },
-			{ 'name': 'maxHeight', 'value': '410px' }
+			{ 'name': 'overflow-y', 'value': 'auto' },
+			{ 'name': 'overflow-x', 'value': 'visible' },
+			{ 'name': 'max-height', 'value': '410px' }
 		],
 		'board-wrapper': [
 			{ 'name': 'overflow', 'value': 'hidden' },
-			{ 'name': 'borderRadius', 'value': '6px' }
+			{ 'name': 'border-radius', 'value': '6px' }
 		],
 		'board-header': [
 			{ 'name': 'height', 'value': 'auto' },
@@ -236,42 +236,42 @@
 		],
 		'board-title': [
 			{ 'name': 'cursor', 'value': 'pointer' },
-			{ 'name': 'fontSize', 'value': '18px' },
-			{ 'name': 'fontWeight', 'value': '700' },
-			{ 'name': 'lineHeight', 'value': '30px' },
-			{ 'name': 'paddingLeft', 'value': '4px' },
-			{ 'name': 'textDecoration', 'value': 'none' },
-			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'font-size', 'value': '18px' },
+			{ 'name': 'font-weight', 'value': '700' },
+			{ 'name': 'line-height', 'value': '30px' },
+			{ 'name': 'padding-left', 'value': '4px' },
+			{ 'name': 'text-decoration', 'value': 'none' },
+			{ 'name': 'float', 'value': 'left' },
 			{ 'name': 'height', 'value': '30px' },
 			{ 'name': 'overflow', 'value': 'hidden' },
-			{ 'name': 'textOverflow', 'value': 'ellipsis' },
-			{ 'name': 'backgroundColor', 'value': 'transparent' },
+			{ 'name': 'text-overflow', 'value': 'ellipsis' },
+			{ 'name': 'background-color', 'value': 'transparent' },
 			{ 'name': 'color', 'value': '#fff' }
 		],
 		'board-visibility': [
-			{ 'name': 'fontSize', 'value': '12px' },
-			{ 'name': 'cssFloat', 'value': 'left' },
+			{ 'name': 'font-size', 'value': '12px' },
+			{ 'name': 'float', 'value': 'left' },
 			{ 'name': 'height', 'value': '30px' },
-			{ 'name': 'lineHeight', 'value': '30px' },
-			{ 'name': 'marginLeft', 'value': '30px' },
+			{ 'name': 'line-height', 'value': '30px' },
+			{ 'name': 'margin-left', 'value': '30px' },
 			{ 'name': 'color', 'value': '#fff' }
 		],
 		'board-canvas': [
-			{ 'name': 'maxHeight', 'value': '470px' },
-			{ 'name': 'paddingBottom', 'value': '10px' },
-			{ 'name': 'overflowX', 'value': 'auto' },
-			{ 'name': 'overflowY', 'value': 'hidden' }
+			{ 'name': 'max-height', 'value': '470px' },
+			{ 'name': 'padding-bottom', 'value': '10px' },
+			{ 'name': 'overflow-x', 'value': 'auto' },
+			{ 'name': 'overflow-y', 'value': 'hidden' }
 		],
 		'list-container': [
 			{ 'name': 'padding', 'value': '0 5px' },
 			{ 'name': 'display', 'value': 'inline-flex' },
 			{ 'name': 'display', 'value': '-ms-flexbox' },
 			{ 'name': 'position', 'value': 'relative' },
-			{ 'name': 'cssFloat', 'value': 'left' }
+			{ 'name': 'float', 'value': 'left' }
 		],
 		'list-wrap': [
 			{ 'name': 'position', 'value': 'relative' },
-			{ 'name': 'cssFloat', 'value': 'left' }
+			{ 'name': 'float', 'value': 'left' }
 		]
 	};
 	
@@ -569,7 +569,7 @@
 			
 			if (board.prefs.backgroundColor) {
 				styles.push({
-					'name': 'backgroundColor',
+					'name': 'background-color',
 					'value': board.prefs.backgroundColor
 				});
 			}
@@ -645,7 +645,7 @@
 		
 		doIfPropertyExists(template, 'styles', function (styleNames) {
 			styleNames.forEach(function (curr, ix, arr) {
-				setDomStyles(elem, STYLES[curr]);
+				elem.className += CSS_PREFIX + curr;
 			});
 		});
 		
@@ -908,18 +908,9 @@
 	 * Insert global CSS rules
 	 */
 	function insertCssRules() {
+		var totalStyles = 0;
+		
 		// Thanks to http://davidwalsh.name/add-rules-stylesheets
-		/**
-		 * Insert a single CSS rule to a stylesheet
-		 */
-		function addCssRule(sheet, selector, rules, index) {
-			if('insertRule' in sheet) {
-				sheet.insertRule(selector + "{" + rules + "}", index);
-			} else if('addRule' in sheet) {
-				sheet.addRule(selector, rules, index);
-			}
-		}
-	
 		// create a new stylesheet and insert into the document
 		// all our styles are going to be added to this stylesheet
 		var sheet = (function() {
@@ -927,11 +918,22 @@
 			style.appendChild(document.createTextNode("")); // WebKit hack
 			document.head.appendChild(style);
 
-			return style.sheet;
+			return style.styleSheet || style.sheet;
 		})();
 		
+		/**
+		 * Insert a single CSS rule to a stylesheet
+		 */
+		function addCssRule(selector, rules) {
+			if('insertRule' in sheet) {
+				var x = sheet.insertRule(selector + "{" + rules + "}", totalStyles++);
+			} else if('addRule' in sheet) {
+				sheet.addRule(selector, rules);
+			}
+		}
+	
 		// insert the icon font
-		addCssRule(sheet, '@font-face',
+		addCssRule('@font-face',
 			'font-family: \'Emrello-Icons\';' +
 			'src: url(data:application/x-font-ttf;charset=utf-8;' +
 			'base64,AAEAAAALAIAAAwAwT1MvMg8SAv8AAAC8AAAAYGNtYXAa' +
@@ -1012,6 +1014,19 @@
 			'AAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format(\'truetype\');' +
 			'font-weight: normal;' +
 			'font-style: normal;');
+		
+		// insert emrello-css-* classes
+		for (var style in STYLES) {
+			var ruleSet = STYLES[style];
+			var rules = '';
+			var selector = '.' + CSS_PREFIX + style;
+			
+			ruleSet.forEach(function (rule, ix, arr) {
+				rules += rule.name + ':' + rule.value + ';';
+			});
+			
+			addCssRule(selector, rules);
+		}
 	}
 	
 	/********* entry point *********/
